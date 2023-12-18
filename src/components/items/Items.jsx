@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import './items.css';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,16 +10,16 @@ import { ShopContext } from "../../context/ShoppingContext";
 import { useTranslation } from 'react-i18next';
 
 const Items = ({products}) => {
-  /*const [yourProduct , setYourProduct] = useState ([]);
-  const updateCart = (id) => {
-    const selectedProduct = products.find(product => product.id === id);
-    setYourProduct([...yourProduct , selectedProduct]);
-  };*/
   const {addToCart, cartItems}= useContext(ShopContext);
   const { t } = useTranslation();
-  console.log('cartItems are', cartItems)
-    return ( 
-        <div>
+  const [currentTheme, setCurrentTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    setCurrentTheme(localStorage.getItem("theme") ?? "light");
+  }, []);
+
+  return ( 
+        <div className={`${currentTheme}`}>
             <CardGroup className="group">
                 {products.map((item) => (
                     <Col lg="3">
@@ -42,12 +42,6 @@ const Items = ({products}) => {
                     </Col>
                 ))}
             </CardGroup>
-            {/*<h2>YOUR CART</h2>
-            <>
-              {yourProduct.map((myProduct) => (
-                <h3>{myProduct.title}</h3>
-              ))}
-              </>*/}
         </div>
      );
 }

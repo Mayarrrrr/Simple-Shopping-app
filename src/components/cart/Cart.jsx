@@ -16,9 +16,7 @@ const Cart = () => {
     });
   }, []);
   const { cartItems, removeAll, getTotalCartAmount } = useContext(ShopContext);
-  //   addToCart(1);
-  console.log("Foulaaa outside ");
-  console.log(cartItems);
+
   return (
     <div className="bg">
       <div className="Cart-Container">

@@ -1,5 +1,34 @@
 .setting-container{
     align-items: center;
     background-color: bisque;
-    width: 80%;
+    padding: 30px;
+    height: 95vh;
+}
+
+.theme-mode {
+    display: flex;
+}
+
+.theme-mode h2 {
+    padding-right: 20px;
+    color: #dc3545;
+}
+
+.form-check-input:checked {
+    background-color: black;
+    border-color: white;
+}
+
+.lang {
+    display: flex;
+    padding-top: 20px;
+}
+
+.lang h2 {
+    padding-right: 20px;
+}
+
+.dark {
+    background-color: rgba(0, 0, 0, 0.87);
+    color: white;
 }

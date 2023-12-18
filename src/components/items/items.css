@@ -10,3 +10,6 @@
 .addButton:hover {
     color: #fa5f87;
 }
+.dark {
+    background-color: black;
+}

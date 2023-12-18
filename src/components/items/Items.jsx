@@ -7,6 +7,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { ShopContext } from "../../context/ShoppingContext";
+import { useTranslation } from 'react-i18next';
 
 const Items = ({products}) => {
   /*const [yourProduct , setYourProduct] = useState ([]);
@@ -15,6 +16,7 @@ const Items = ({products}) => {
     setYourProduct([...yourProduct , selectedProduct]);
   };*/
   const {addToCart, cartItems}= useContext(ShopContext);
+  const { t } = useTranslation();
   console.log('cartItems are', cartItems)
     return ( 
         <div>
@@ -30,10 +32,10 @@ const Items = ({products}) => {
                         </Card.Text>
                         </Card.Body>
                         <Card.Footer>
-                        <small className="text-muted">Rating {item.rating}</small>
+                        <small className="text-muted">{t('Rating')} {item.rating}</small>
                         </Card.Footer>
                         <Button variant="dark" onClick={() => addToCart(item.id)} className="addButton">
-                          Add to cart {cartItems[item.id] > 0 ? cartItems[item.id] : ""}
+                          {t('Add to cart')} {cartItems[item.id] > 0 ? cartItems[item.id] : ""}
                         </Button>
 
                     </Card>

@@ -1,0 +1,41 @@
+.nav {
+    display: flex;
+    background-color: #011f3e;
+    color: white;
+    align-items: center;
+    left: 0;
+    right: 0;
+    height: 70px;
+    padding: 10px;
+    box-shadow: 0 0 10px 5px #a09fa0;
+}
+
+.nav ul {
+    right: 0;
+}
+
+.nav li {
+    display: inline;
+    margin: 15px;
+    right: 0;
+}
+
+.nav li a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav li a:hover {
+    text-decoration: none;
+    color: #fa5f87;
+}
+
+.nav img {
+    padding-left: 30px;
+    height: 65px;
+    width: 100px;
+}
+
+.active {
+    color: #fa5f87 !important;
+}

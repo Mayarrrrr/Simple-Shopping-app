@@ -32,7 +32,7 @@ const NavBar = () => {
                     <Nav.Link href="#link">Products</Nav.Link>
                     <Nav.Link href="#link">Offers</Nav.Link>
                     <Nav.Link href="cart"><ShoppingCart size={32}/></Nav.Link>
-                    <Nav.Link href="cart"> {Object.keys(cartItems??{}).length}</Nav.Link>       {/*lw msh la2y 7aga feha rg3lii object fady*/}
+                    <Nav.Link href="cart"> {Object.keys(cartItems??{}).filter((key)=> cartItems[key] !== 0).length }</Nav.Link>       {/*lw msh la2y 7aga feha rg3lii object fady*/}
                 </Nav>
                 </Navbar.Collapse>
             </Container>

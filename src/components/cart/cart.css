@@ -9,8 +9,9 @@ align-items: center;
 }
 
 .Cart-Container {
+    padding-top: 30px;
     width: 70%;
-    height: 85%;
+    height: fit-content;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: px 25px 40px #1687d933;

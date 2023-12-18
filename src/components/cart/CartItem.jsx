@@ -7,7 +7,7 @@ import { ShopContext } from "../../context/ShoppingContext";
 const CartItem = (props) => {
     const {id, title, price, images , brand } = props.data;
     const firstImage = images[0];
-    const {addToCart, cartItems, deleteFromCart}= useContext(ShopContext);
+    const {addToCart, cartItems, decreaseQuantity,removeFromCart}= useContext(ShopContext);
 
     return ( 
         <div className="Cart-Items" key={id}>
@@ -21,11 +21,11 @@ const CartItem = (props) => {
         <div className="counter">
             <div className="btn-cart" onClick={() => addToCart(id) }>+</div>
             <div className="count">{cartItems[id]}</div>
-            <div className="btn-cart" onClick={() => deleteFromCart(id) }>-</div>
+            <div className="btn-cart" onClick={() => decreaseQuantity(id) }>-</div>
         </div>
         <div className="prices">
             <div className="amount">$ {price}</div>
-            <div className="remove"><u><Trash size={32} color="red"/></u></div>
+            <div className="remove" onClick={()=> removeFromCart(id)}><u><Trash size={32} color="red"/></u></div>
         </div>
     </div>
      );

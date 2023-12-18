@@ -13,7 +13,7 @@ const Cart = () => {
       setProducts(response.data.products);
     });
   }, []);
-  const { cartItems, addToCart } = useContext(ShopContext);
+  const { cartItems, removeAll, getTotalCartAmount } = useContext(ShopContext);
   //   addToCart(1);
   console.log("Foulaaa outside ");
   console.log(cartItems);
@@ -22,14 +22,11 @@ const Cart = () => {
       <div className="Cart-Container">
         <div className="Header">
           <h3 className="Heading">Shopping Cart</h3>
-          <h5 className="Action">Remove all</h5>
+          <h5 className="Action" onClick={removeAll}>Remove all</h5>
         </div>
         {products.map((itemCart) => {
-          console.log("Foulaaa from map ", itemCart.id);
-          console.log(cartItems[itemCart.id]);
           if (cartItems[itemCart.id]) {
             return <CartItem data={itemCart} />;
-            console.log(itemCart);
           }
         })}
         <hr /> <br />
@@ -37,9 +34,9 @@ const Cart = () => {
           <div className="total">
             <div>
               <div className="Subtotal">Sub-Total</div>
-              <div className="items">2 items</div>
+              <div className="items"> {Object.keys(cartItems??{}).filter((key)=> cartItems[key] !== 0).length } items</div>
             </div>
-            <div className="total-amount">$6.18</div>
+            <div className="total-amount">$ {getTotalCartAmount()}</div>
           </div>
           <button className="button">Checkout</button>
         </div>

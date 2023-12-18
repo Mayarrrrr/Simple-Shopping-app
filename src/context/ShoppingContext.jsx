@@ -29,55 +29,76 @@ const ShoppingContextProvider = (props) => {
     fetchProductsData();
   }, []);
 
-  //   const [cartItems, setCartItemsState] = useState(() => {
-  //     // Get cart items from localStorage on component mount
-  //     const storedCartItems = JSON.parse(
-  //       "{}" ?? localStorage.getItem("cartItems") ?? "{}"
-  //     );
-  //     return { ...getDefaultCart(products), ...storedCartItems };
-  //   });
-
   const [cartItems, setCartItemsState] = useState(
     JSON.parse(localStorage.getItem("myCartItems") ?? "{}")
   );
 
-  const setCartItems = (itemId) => {
-    // Update state and localStorage when cart items change
+  if (!products || !products.length) return null;
 
+  function saveToLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  const addToCart = (itemId) => {
     setCartItemsState((prev) => {
-      console.log("PREV ID: ", prev);
       const newCart = {
         ...prev,
         [itemId]: (prev[itemId] ?? 0) + 1,
       };
-      localStorage.setItem("myCartItems", JSON.stringify(newCart));
+      saveToLocalStorage("myCartItems", newCart);
       return newCart;
     });
   };
 
-  const addToCart = (itemId) => {
-    setCartItems(itemId);
-    // setCartItems({
-    //     ...prev,
-    //     [itemId]: (prev[itemId] ?? 0) + 1,
-    //   })
-    // setCartItems((prev) => {
-    //   console.log("PREV ID: ", prev);
-    //   return {
-    //     ...prev,
-    //     [itemId]: (prev[itemId] ?? 0) + 1,
-    //   };
-    // });
+  const decreaseQuantity = (itemId) => {
+    setCartItemsState((prev) => {
+      const newCart = {
+        ...prev,
+        [itemId]: (prev[itemId] ?? 0) - 1,
+      };
+      saveToLocalStorage("myCartItems", newCart);
+      return newCart;
+    });
   };
 
-  const deleteFromCart = (itemId) => {
-    setCartItems((prev) => ({
-      ...prev,
-      [itemId]: prev[itemId] ? prev[itemId] - 1 : 0,
-    }));
+  const removeFromCart = (itemId) => {
+    setCartItemsState((prev) => {
+      const newCart = {
+        ...prev,
+        [itemId]: 0,
+      };
+      saveToLocalStorage("myCartItems", newCart);
+      return newCart;
+    });
   };
 
-  const contextValue = { cartItems, addToCart, deleteFromCart };
+  const removeAll = () => {
+    setCartItemsState(() => {
+      const newCart = {};
+      saveToLocalStorage("myCartItems", newCart);
+      return newCart;
+    });
+  };
+
+  const getTotalCartAmount = () => {
+    let totalAmount = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        let itemInfo = products.find((product) => product.id === Number(item));
+        totalAmount += cartItems[item] * itemInfo.price;
+      }
+    }
+    return totalAmount;
+  };
+
+  const contextValue = {
+    cartItems,
+    addToCart,
+    decreaseQuantity,
+    removeFromCart,
+    removeAll,
+    getTotalCartAmount,
+  };
   console.log(cartItems);
   return (
     <ShopContext.Provider value={contextValue}>

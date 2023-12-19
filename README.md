@@ -1,6 +1,6 @@
 # Simple Shopping Application
 
-Welcome to the React Product Catalog web application! This application is built using React JS and incorporates various features to provide a seamless shopping experience.
+Welcome to the React Simple Shopping Application! This application is built using React JS and incorporates various features to provide a seamless shopping experience.
 
 ## Features
 
@@ -13,20 +13,20 @@ Welcome to the React Product Catalog web application! This application is built 
 - Users can specify the quantity of each product and save the cart locally.
   
 ### 3. Cart Screen and Operations
-- Show a list of products chosen by the user in the cart.
+- A List of products that are chosen by the user in the cart.
 - Enable users to delete products from the cart, change the quantity of products, and clear the entire cart.
   
 ### 4. Cart Icon
-- Display a cart icon in the navigation bar with a count that reflects any changes made to the cart.
+- A cart icon displayed in the navigation bar with a count that reflects any changes made to the cart.
   
 ### 5. Multiple Language Support
-- Add support for the English and Arabic languages of your choice.
-- Create a language switcher in the Settings menu that allows users to change the application's language.
+- Added support for the English and Arabic languages of your choice.
+- Created a language switcher in the Settings menu that allows users to change the application's language.
   
 ### 6. Dark Mode
-- Implement a dark mode feature that changes the background color to a dark theme and adjusts the text color accordingly.
+- Dark mode feature that changes the background color to a dark theme.
 ### 7. Dynamic Updates
-- Ensure the app style dynamically updates when switching between light and dark modes without requiring a full restart.
+- The app style dynamically updates when switching between light and dark modes without requiring a full restart.
 
 
 ## Available Scripts

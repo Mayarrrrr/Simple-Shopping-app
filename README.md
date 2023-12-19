@@ -28,7 +28,6 @@ Welcome to the React Product Catalog web application! This application is built 
 ### 7. Dynamic Updates
 - Ensure the app style dynamically updates when switching between light and dark modes without requiring a full restart.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

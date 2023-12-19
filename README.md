@@ -20,7 +20,7 @@ Welcome to the React Product Catalog web application! This application is built 
 - Display a cart icon in the navigation bar with a count that reflects any changes made to the cart.
   
 ### 5. Multiple Language Support
-- Add support for English and one additional language of your choice.
+- Add support for the English and Arabic languages of your choice.
 - Create a language switcher in the Settings menu that allows users to change the application's language.
   
 ### 6. Dark Mode

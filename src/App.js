@@ -2,14 +2,20 @@ import "./App.css";
 import Cart from "./components/cart/Cart";
 import Home from "./components/home/Home";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
 import NavBar from "./components/navbar/NavBar";
 import ShoppingContextProvider from "./context/ShoppingContext";
 import Setting from "./components/setting/Setting";
 import './i18n';
 
 function App() {
+  const [currentTheme, setCurrentTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    setCurrentTheme(localStorage.getItem("theme") ?? "light");
+  }, []);
   return (
-    <div className="App">
+    <div className={`App ${currentTheme}`}>
       <ShoppingContextProvider>
       <NavBar/>
        <BrowserRouter>

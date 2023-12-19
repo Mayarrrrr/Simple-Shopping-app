@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { Sun } from "phosphor-react";
 import {Moon} from "phosphor-react";
 import  { useState } from "react";
+import { MDBSwitch } from 'mdb-react-ui-kit';
 
 const changeLanguage = (lng) => {
     localStorage.setItem("language",lng);
@@ -28,16 +29,15 @@ const Setting = () => {
         <div className ={`setting-container ${theme}`}>
              <div className="theme-mode d-flex align-items-center">
                 <h2>Choose you mode : </h2>
-                <Sun size={32} />
-                <Form.Check
-                    style={{ fontSize: '32px', margin: '0 15px' }}
-                    type="switch"
-                    id="custom-switch"
+                <Sun size={25}/>
+                <MDBSwitch
+                    style={{ margin: '0 15px' }}
+                    id="flexSwitchCheckDefault"
                     label=""
                     onChange={handleThemeChange}
                     checked={theme === "dark"}
                 />
-                <Moon size={32} />
+                <Moon size={25} />
             </div>
             <div className="lang">
                 <h2>Choose you language : </h2>

@@ -1,4 +1,32 @@
-# Getting Started with Create React App
+# Simple Shopping Application
+
+Welcome to the React Product Catalog web application! This application is built using React JS and incorporates various features to provide a seamless shopping experience.
+
+## Features
+
+### 1. Main Screen
+- Display a list of products with their names, images, and other relevant information.
+- Product data is fetched from an online source. In this case, the application uses https://dummyjson.com/docs/products as an example source.
+
+### 2. Cart Functionality
+- Allow users to add products to a cart.
+- Users can specify the quantity of each product and save the cart locally.
+  
+### 3. Cart Screen and Operations
+- Show a list of products chosen by the user in the cart.
+- Enable users to delete products from the cart, change the quantity of products, and clear the entire cart.
+  
+### 4. Cart Icon
+- Display a cart icon in the navigation bar with a count that reflects any changes made to the cart.
+  
+### 5. Multiple Language Support
+- Add support for English and one additional language of your choice.
+- Create a language switcher in the Settings menu that allows users to change the application's language.
+  
+### 6. Dark Mode
+- Implement a dark mode feature that changes the background color to a dark theme and adjusts the text color accordingly.
+### 7. Dynamic Updates
+- Ensure the app style dynamically updates when switching between light and dark modes without requiring a full restart.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
